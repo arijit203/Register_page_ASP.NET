@@ -1,0 +1,233 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Register";
+}
+@model WebApplication3.Models.Register
+<link rel="stylesheet" href="~/css/register.css" />
+<div style="border: 2px solid #ccc;
+
+    margin: 50px;
+    border-radius: 0.5rem;">
+    <form id="myForm" method="post" asp-controller="Home" asp-action="Register">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <p style="text-align:justify; line-height:23.15pt;background-color: #c4e3ee;padding-left: 15px;border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;padding-top:15px;padding-bottom: 15px;font-weight: 550;">
+            <span style="font-family:Calibri; font-size:19pt">e-Filing</span>
+            <span style="font-family:Calibri; font-size:19pt; letter-spacing:4pt"> </span>
+            <span style="font-family:Calibri; font-size:19pt">::</span>
+            <span style="font-family:Calibri; font-size:19pt; letter-spacing:0.85pt"> </span>
+            <span style="font-family:Calibri; font-size:19pt">REGISTRATION</span>
+            <span style="font-family:Calibri; font-size:19pt; letter-spacing:9.8pt"> </span>
+            <span style="font-family:Calibri; font-size:19pt">FORM</span>
+        </p>
+        <div style=" padding: 20px;
+        padding-top: 15px;">
+
+
+            <!-- Registration Type -->
+            <p style="margin-top:32.15pt; margin-left:0.75pt; text-align:justify; line-height:17.05pt;font-weight: 600;">
+                <span style="font-family:Calibri; font-size:14pt">You</span>
+                <span style="font-family:Calibri; font-size:14pt; letter-spacing:2.1pt"> </span>
+                <span style="font-family:Calibri; font-size:14pt">want</span>
+                <span style="font-family:Calibri; font-size:14pt; letter-spacing:1pt"> </span>
+                <span style="font-family:Calibri; font-size:14pt">to</span>
+                <span style="font-family:Calibri; font-size:14pt; letter-spacing:0.85pt"> </span>
+                <span style="font-family:Calibri; font-size:14pt">register</span>
+                <span style="font-family:Calibri; font-size:14pt; letter-spacing:3.7pt"> </span>
+                <span style="font-family:Calibri; font-size:14pt">as</span>
+                <span style="font-family:Calibri; font-size:14pt; letter-spacing:3.05pt"> </span>
+                <span style="font-family:Calibri; font-size:14pt">:-</span>
+            </p>
+			
+            <!-- Registration Options -->
+            <p style="margin-top:9.95pt; margin-left:0.75pt; text-align:justify; line-height:15.85pt">
+                <input type="radio" name="TypeOfPerson" value="advocate" asp-for="TypeOfPerson" style="margin-right: 0px"> Advocate
+                <input type="radio" name="TypeOfPerson" value="in_person" asp-for="TypeOfPerson" style="margin-right: 0px"> In-Person
+                <input type="radio" name="TypeOfPerson" value="others" asp-for="TypeOfPerson" style="margin-right: 0px"> Others
+
+                <!-- Advocate Details -->
+            <p style="margin-top:24.8pt; margin-left:0.75pt; text-align:justify; line-height:25.6pt">
+                <span style="font-family:Calibri; font-size:21pt" id="selectedValueText"></span>
+
+            </p>
+            <hr>
+
+            <!-- Bar Council Enrollment Details -->
+            <p style="margin-top:24.55pt; margin-left:1.55pt; text-align:justify; line-height:20.3pt;">
+
+                <label asp-for="EnrollNo">Bar Council Enrollment No<span style="color:red">*</span> : <input asp-for="EnrollNo" class="form-control" /> <span asp-validation-for="EnrollNo" class="text-danger"></span></label>
+
+
+                <label asp-for="EnrollDate">Date of Enrollment<span style="color:red">*</span> : <input asp-for="EnrollDate" type="date" class="form-control" /></label>
+
+
+            </p>
+            <!-- Personal Information -->
+            <p style="margin-top:21.5pt; margin-left:1.55pt; text-align:justify; line-height:19.65pt">
+                <label asp-for="FirstName">First Name<span style="color:red">*</span> :  <input asp-for="FirstName" name="FirstName" class="form-control" /><span asp-validation-for="FirstName" class="text-danger"></span></label>
+                <label asp-for="MiddleName">Middle Name:  <input asp-for="MiddleName" class="form-control" /></label>
+                <label asp-for="LastName">Last Name<span style="color:red">*</span> :<input asp-for="LastName" name="LastName" class="form-control" /></label>
+                <label asp-for="Gender">
+                    Sex<span style="color:red">*</span> :
+                    
+                    <input type="radio" name="Gender" value="Male" style="margin-right: 0px" asp-for="Gender"> Male
+                    <input type="radio" name="Gender" value="Female" style="margin-right: 0px" asp-for="Gender"> Female
+                    <input type="radio" name="Gender" value="Others" style="margin-right: 0px" asp-for="Gender"> Others
+                </label>
+            </p>
+
+            <!-- Contact Information -->
+            <p style="    margin-left: 1.55pt;
+            text-indent: 1.555pt;
+            line-height: 80.95pt;">
+                <label asp-for="Email">Email<span style="color:red">*</span> : <input name="email" asp-for="Email"></label>
+                
+                <label asp-for="MobileNo" class="control-label">Mobile No.<span style="color:red">*</span> :<input asp-for="MobileNo" class="form-control" /></label>
+                   
+                <label asp-for="PhoneNoOffice">Phone No (Office): <input name="office_phone" asp-for="PhoneNoOffice"></label>
+                <label asp-for="PhoneNoRes"> Phone No (Residential): <input  name="residential_phone" asp-for="PhoneNoRes"></label>
+            </p>
+
+            <!-- Correspondence Address -->
+            <p style="margin-top:20.3pt; margin-left:1.55pt; text-align:justify; line-height:19.55pt;">
+                <label asp-for="CorresAddress">Correspondence Address<span style="color:red">*</span> :</label>
+                <textarea asp-for="CorresAddress" name="CorresAddress"></textarea>
+
+                <label style="padding-left: 50px" asp-for="Pincode" class="control-label">Correspondence Pin Code<span style="color:red">*</span> : </label>
+                <input asp-for="Pincode" name="Pincode" class="form-control" />
+               
+
+            
+            </p>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password<span style="color:red">*</span></label>
+                <input asp-for="Password" type="password" name="password" id="password" class="form-control" />
+                <label style="padding-left:20px" class="control-label">Retype Password</label>
+                <input type="password" id="retypePassword"  class="form-control" />
+                <div id="passwordMismatch" class="text-danger" style="color:red"></div>
+            </div>
+            
+
+            <!-- Submit Button -->
+            <p style="margin-top:24.3pt; margin-left:644pt; text-align:justify; line-height:12.2pt">
+                <input type="submit" value="Submit">
+            </p>
+        </div>
+        
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script>
+    $(document).ready(function () {
+        //$('input').attr('autocomplete','off');
+        
+        $('input[name="TypeOfPerson"]').change(function () {
+            var selectedValue = $('input[name="TypeOfPerson"]:checked').val();
+            $('#selectedValueText').text(selectedValue.toUpperCase());
+            $('#selectedValueDetails').show();
+        });
+    });
+    $(document).ready(function () {
+       
+        $('form').submit(function (e) {
+            // Clear previous error messages
+            var form = document.getElementById('myForm');
+            var formData = new FormData(form);
+            formData.forEach(function (value, key) {
+                console.log(key + ': ' + value);
+            });
+            $('.text-danger').text('');
+
+            
+
+            // Validate fields
+            if (!$('input[name="TypeOfPerson"]:checked').val()) {
+                alert('Please select a registration type.');
+                e.preventDefault();
+            }
+
+            // Add similar validation for other fields
+            if (!$('textarea[name="CorresAddress"]').val()) {
+                alert('CorresAddress cannot be empty.');
+                e.preventDefault();
+            }
+
+            if (!$('input[name="email"]').val()) {
+                alert('Email cannot be empty.');
+                e.preventDefault();
+            }
+
+            if (!$('input[name="EnrollDate"]').val()) {
+                alert('EnrollDate cannot be empty.');
+                e.preventDefault();
+            }
+
+            if (!$('input[name="EnrollNo"]').val()) {
+                alert('EnrollNo cannot be empty.');
+                e.preventDefault();
+            }
+            if (!$('input[name="Gender"]:checked').val()) {
+                alert('Please select a Gender type.');
+                e.preventDefault();
+            }
+            // Validate non-empty fields
+            if (!$('input[name="FirstName"]').val()) {
+                alert('First Name cannot be empty.');
+                e.preventDefault();
+            }
+
+            if (!$('#LastName').val()) {
+                alert('Last Name cannot be empty.');
+                e.preventDefault();
+            }
+
+            if (!$('input[name="password"]').val()) {
+                alert('Password cannot be empty.');
+                e.preventDefault();
+            }
+
+            if (!$('input[name="MobileNo"]').val()) {
+                alert('Mobile No. cannot be empty.');
+                e.preventDefault();
+            }
+            if (!$('input[name="Pincode"]').val()) {
+                alert('Pincode cannot be empty.');
+                e.preventDefault();
+            }
+
+
+            
+            var regex =
+                /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            if (!regex.test($('input[name="email"]').val())) {
+                $('input[name="email"]').val('');
+                alert('Invalid email address.');
+                e.preventDefault();
+            }
+            
+            // Validate phone number format
+            var phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test($('input[name="MobileNo"]').val())) {
+                $('input[name="MobileNo"]').val('');
+                alert('Invalid mobile number.');
+                e.preventDefault();
+            }
+            var password = $('#password').val();
+            var retypePassword = $('#retypePassword').val();
+
+            if (password !== retypePassword) {
+                $('#passwordMismatch').text('Password and Retype Password do not match.');
+                e.preventDefault();
+            }
+        });
+
+
+    });
+
+</script>
